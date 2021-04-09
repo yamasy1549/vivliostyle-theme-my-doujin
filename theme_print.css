@@ -49,6 +49,49 @@ h2 {
 }
 
 /* and more... 🖋 */
+@page :first {
+  counter-reset: p;
+}
+@page {
+  counter-increment: p;
+}
+/* 小口側、上にページ番号 */
+@page :left {
+  @top-left {
+    content: counter(p);
+  }
+}
+@page :right {
+  @top-right {
+    content: counter(p);
+  }
+}
+/* 章番号 */
+@page :nth(1) {
+  counter-increment: chapter p;
+}
+/* 章タイトル */
+h1 {
+  border-top: 10pt solid black;
+}
+h1::before {
+  content: "第 " counter(chapter) " 章";
+  display: block;
+  font-size: 80%;
+  margin: 10pt auto;
+}
+
+/* 著者名 */
+h2 {
+  text-align: right;
+  border-bottom: 10pt solid black;
+}
+
+/* 全体 */
+html {
+  line-height: 2rem;
+}
+
 @page {
   /* show bleeds */
   marks: crop cross;
