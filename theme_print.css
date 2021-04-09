@@ -1,0 +1,63 @@
+@charset "UTF-8";
+/*
+ * For PDF publications or Vivliostyle Viewer:
+ * load this style in PDF publicatoins (format: pdf)
+ */
+/* common styles */
+/*
+ * For all media (print, screen)
+ */
+/* you can import partial SCSS files */
+/* @import '_valiables'; */
+/* @import '_toc'; */
+/* ... */
+html {
+  orphans: 1;
+  widows: 1;
+}
+
+@page {
+  size: A5;
+}
+title {
+  string-set: doc-title content();
+}
+
+@page :left {
+  @top-left {
+    content: counter(page) "　" string(doc-title);
+  }
+}
+@page :right {
+  @top-right {
+    content: counter(page);
+  }
+}
+html {
+  font-family: sans-serif;
+  line-height: 1.666rem;
+}
+
+h1 {
+  break-after: avoid;
+}
+
+h2 {
+  font-size: 1.18rem;
+  text-indent: 3rem;
+  break-after: avoid;
+}
+
+/* and more... 🖋 */
+@page {
+  /* show bleeds */
+  marks: crop cross;
+  bleed: 3mm;
+  /* if you open the publication on Vivliostyle Viewer, this message will be shown */
+  @top-left {
+    content: "theme_print";
+  }
+}
+/* and more... 🖋 */
+
+/*# sourceMappingURL=theme_print.css.map */
