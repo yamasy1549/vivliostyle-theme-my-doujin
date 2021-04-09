@@ -49,6 +49,16 @@ h2 {
 }
 
 /* and more... 🖋 */
+@page {
+  /* show bleeds */
+  marks: crop cross;
+  bleed: 3mm;
+  /* if you open the publication on Vivliostyle Viewer, this message will be shown */
+  @top-left {
+    content: "theme_print";
+  }
+}
+/* and more... 🖋 */
 @page :first {
   counter-reset: p;
 }
@@ -91,16 +101,5 @@ h2 {
 html {
   line-height: 2rem;
 }
-
-@page {
-  /* show bleeds */
-  marks: crop cross;
-  bleed: 3mm;
-  /* if you open the publication on Vivliostyle Viewer, this message will be shown */
-  @top-left {
-    content: "theme_print";
-  }
-}
-/* and more... 🖋 */
 
 /*# sourceMappingURL=theme_print.css.map */

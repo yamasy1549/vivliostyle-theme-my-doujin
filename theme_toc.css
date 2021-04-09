@@ -44,5 +44,40 @@ h2 {
 }
 
 /* and more... 🖋 */
+/* いらないところを消す */
+@page :left {
+  @top-left {
+    content: "";
+  }
+}
+@page :right {
+  @top-right {
+    content: "";
+  }
+}
+h1 {
+  display: none;
+}
 
-/*# sourceMappingURL=theme_common.css.map */
+h2 {
+  text-indent: 0;
+}
+
+nav ol {
+  padding: 0;
+  list-style: none;
+}
+nav ol li a {
+  text-decoration: none;
+  color: inherit;
+}
+nav ol li a::before {
+  content: "第 " target-counter(attr(href url), chapter) " 章";
+  margin-right: 1rem;
+}
+nav ol li a::after {
+  content: target-counter(attr(href url), p);
+  float: right;
+}
+
+/*# sourceMappingURL=theme_toc.css.map */
