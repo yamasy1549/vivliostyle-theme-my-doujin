@@ -1,18 +1,19 @@
 {
   "name": "vivliostyle-theme-my-doujin",
-  "description": "すごい合同誌のTheme",
+  "description": "awesome theme",
   "version": "0.1.0",
-  "author": "わたし <watashi.example.com>",
+  "author": "John Doe <john.example.com>",
   "scripts": {
-    "build": "run-p build:scss",
+    "build": "run-p build:scss build:vivliostyle",
     "build:scss": "sass scss:.",
+    "build:vivliostyle": "vivliostyle build",
     "dev": "run-p preview watch:scss",
     "preview": "vivliostyle preview",
     "validate": "vivliostyle-theme-scripts validate",
     "watch:scss": "sass --watch scss:."
   },
   "devDependencies": {
-    "@vivliostyle/cli": "^3.3.0",
+    "@vivliostyle/cli": "latest",
     "sass": "^1.32.8",
     "npm-run-all": "^4.1.5",
     "vivliostyle-theme-scripts": "^0.3.1"
@@ -32,7 +33,7 @@
   "vivliostyle": {
     "theme": {
       "name": "Vivliostyle Theme My Doujin",
-      "author": "わたし <watashi.example.com>",
+      "author": "John Doe <john.example.com>",
       "style": "./theme_print.css",
       "category": "novel",
       "topics": []

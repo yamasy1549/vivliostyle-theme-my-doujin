@@ -1,37 +1,38 @@
-@import "theme_common";
+@import 'theme_common';
 
-/* いらないところを消す */
+@page {
+  marks: crop cross;
+  bleed: 3mm;
 
+  @top-left {
+    content: 'theme_print';
+  }
+}
+
+// ページ番号をインクリメントしない
+@page :nth(1) {
+  counter-increment: none;
+}
+
+// 不要な部分を隠す
 @page :left {
   @top-left {
-    content: "";
+    content: '';
   }
 }
-
 @page :right {
   @top-right {
-    content: "";
+    content: '';
   }
 }
-
-h1 {
-  display: none;
-}
-
-h2 {
-  text-indent: 0;
-}
-
+h1 { display: none; }
+h2 { text-indent: 0; }
 nav ol {
   padding: 0;
   list-style: none;
-
   li a {
-    text-decoration: none;
-    color: inherit;
     &::before {
-      content: "第 " target-counter(
-      attr(href url), chapter) " 章";
+      content: '第 ' target-counter(attr(href url), chapter) ' 章';
       margin-right: 1rem;
     }
     &::after {

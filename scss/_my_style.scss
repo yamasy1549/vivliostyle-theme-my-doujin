@@ -1,46 +1,67 @@
-@page :first {
-  counter-reset: p;
-}
+// 一番最初のページでリセット
+@page :first { counter-reset: p; }
+
+// 各ページでインクリメント
+// ページ上部に章ごとのタイトルを表示
 @page {
   counter-increment: p;
+
+  @top-center {
+    content: string(doc-title);
+  }
 }
 
-/* 小口側、上にページ番号 */
+// 左ページの場合は左上に表示
 @page :left {
   @top-left {
     content: counter(p);
   }
 }
+
+// 右ページの場合は右上に表示
 @page :right {
   @top-right {
     content: counter(p);
   }
 }
 
-/* 章番号 */
+// 章番号
 @page :nth(1) {
   counter-increment: chapter p;
 }
 
-/* 章タイトル */
-h1 {
-  border-top: 10pt solid black;
+// 章タイトル
+section > {
+  h1 {
+    border-top: 10pt solid black;
 
-  &::before {
-    content: "第 " counter(chapter) " 章";
-    display: block;
-    font-size: 80%;
-    margin: 10pt auto;
+    &::before {
+      content: '第 ' counter(chapter) ' 章';
+      display: block;
+      font-size: 80%;
+      margin: 10pt auto;
+    }
   }
 }
 
-/* 著者名 */
-h2 {
+// 著者名
+.author {
+  font-weight: bold;
   text-align: right;
   border-bottom: 10pt solid black;
+  margin-bottom: 20pt;
 }
 
-/* 全体 */
+// 全体
 html {
   line-height: 2rem;
+}
+
+// テーマカラー
+html.natsume {
+  h1, .author { border-color: #D1307D; }
+}
+
+html.akutagawa {
+  h1, .author { border-color: #24AAE1; }
 }

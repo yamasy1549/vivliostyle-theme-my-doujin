@@ -4,7 +4,7 @@
 [![npm: total downloads](https://flat.badgen.net/npm/dt/vivliostyle-theme-my-doujin)](https://npmjs.com/package/vivliostyle-theme-my-doujin)
 ![npm: license](https://flat.badgen.net/npm/license/vivliostyle-theme-my-doujin)
 
-すごい合同誌
+awesome theme
 
 ## Install
 
